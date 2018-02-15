@@ -23,6 +23,9 @@ public class MetodosNumericos {
         int varX = 4;
         int varY = 5;
         
+        
+        GrahpicPane gp = new GraphicPane();
+        
         Scanner scan = new Scanner(System.in);
         String exp = scan.nextLine();
         
