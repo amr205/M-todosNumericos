@@ -5,6 +5,13 @@
  */
 package metodosnumericos;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.DefaultXYDataset;
+import org.jfree.data.xy.XYDataset;
+
 /**
  *
  * @author Alejandro Medina
@@ -16,6 +23,25 @@ public class GraphicPane extends javax.swing.JFrame {
      */
     public GraphicPane() {
         initComponents();
+        
+        
+        XYDataset ds = createDataset();
+        JFreeChart chart = ChartFactory.createXYLineChart("Test Chart",
+                "x", "y", ds, PlotOrientation.VERTICAL, true, true,
+                false);
+        
+        ChartPanel cp = new ChartPanel(chart);
+        
+        this.getContentPane().add(cp);
+    }
+    
+    
+    private XYDataset createDataset() {
+
+        DefaultXYDataset ds = new DefaultXYDataset();
+        double[][] data = { {0.1, 0.2, 0.3}, {1, 2, 3} };
+        ds.addSeries("series1", data);
+        return ds;
     }
 
     /**
