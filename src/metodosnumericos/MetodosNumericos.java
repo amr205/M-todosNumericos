@@ -5,6 +5,10 @@
  */
 package metodosnumericos;
 
+import java.util.Scanner;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+
 /**
  *
  * @author Alejandro Medina
@@ -16,6 +20,22 @@ public class MetodosNumericos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        int varX = 4;
+        int varY = 5;
+        
+        Scanner scan = new Scanner(System.in);
+        String exp = scan.nextLine();
+        
+        double result = new ExpressionBuilder(exp)
+        .variables("x","y")
+        .build()
+        .setVariable("x", varX)
+        .setVariable("y", varY)
+        .evaluate();
+        
+        
+        System.out.println("resultado: "+result);
+
     }
     
 }
